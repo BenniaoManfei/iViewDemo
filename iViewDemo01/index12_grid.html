@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iview Example</title>
+		<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+		<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+	</head>
+	<body style="padding:20px;">
+		<div id="app">
+			<row :gutter="16">
+				<i-col span="12">col-12</i-col>
+				<i-col span="12">col-12</i-col>
+			</row>
+			<row :gutter="16">
+				<i-col span="6">col-5</i-col>
+				<i-col span="8">col-8</i-col>
+				<i-col span="4">col-4</i-col>
+				<i-col span="6">col-6</i-col>
+			</row>
+			<row :gutter="16">
+				<i-col span="8">col-8</i-col>
+				<i-col span="8">col-8</i-col>
+				<i-col span="8">col-8</i-col>
+			</row>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					visible:false
+				},
+				methods:{
+					show:function(){
+						this.visible = true
+					}
+				}
+			});
+		</script>
+	</body>
+	
+	
+</html>
