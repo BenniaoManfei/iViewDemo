@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iview Example</title>
+		<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+		<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+		<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h3>基础的表格</h3><br><br><br>
+			<i-table highlight-row border  :columns="columns1"  :data="data1"></i-table><br><br>
+			
+
+		</div>
+	</div>
+		<script>
+			new Vue({
+				el : '#app',
+				data : {
+					columns1:[
+						{
+	                        type: 'selection',
+	                        width: 60,
+	                        align: 'center'
+	                    },
+						{
+							title:'姓名',
+							key:'name',
+							render:function(h,params) {
+								return h(
+									"div",[
+										h("icon",{
+											props:{
+												type:'person'
+											}
+										}),
+										h("strong",params.row.name)
+									]
+								);
+							}
+						},
+						{
+							title:'年龄',
+							key:'age',
+							sortable: true,
+							filters:[
+								{
+									label:'大于30岁',
+									value:1
+								},{
+									label:'20~30岁',
+									value:2
+								},{
+									label:'小于20岁',
+									value:3
+								}
+							],
+							filterMultiple: false,//组合
+							filterMethod:function(value,row){
+								if(value==1) {
+									return row.age >30;
+								} else if(value==2) {
+									return row.age>=20 && row.age<=30;
+								} else if(value==3) {
+									return row.age<20;
+								}
+							}
+						},
+						{
+							title:'状态',
+							key:'type',
+							render:function(h,params) {
+								return h("strong",params.row.typeEnum.name);
+								}
+						},
+						{
+							title:'地址',
+							key:'address'
+						},
+						{
+							title:'操作',
+							key:'action',
+							width:150,
+							align:'center',
+							render:function(h,params){
+								return h('div',[
+									h('i-button',{
+										props:{
+											type:'primary',
+											size:'small'
+										},
+										style:{
+											marginRight:'5px'
+										},
+										on:{
+											click:() => {
+												this.show(params.index)
+											}
+										}
+									},'查看'),
+									h('i-button',{
+										props:{
+											type:'error',
+											size:'small'
+										},
+										on:{
+											click:() => {
+												this.remove(params.index)
+											}
+										}
+									},'删除'),
+								]);
+							}
+						}
+					],
+					data1:[
+	                    {
+	                        name: '王小明2',
+	                        age: 18,
+	                        address: '北京市朝阳区芍药居',
+	                        type:1,
+	                        typeEnum:{
+	                        	name:'正常',
+	                        	code:1
+	                        }
+	                    },
+	                    {
+	                        name: '张小刚',
+	                        age: 25,
+	                        address: '北京市海淀区西二旗',
+	                        _checked: true,
+	                        type:2,
+	                        typeEnum:{
+	                        	name:'锁定',
+	                        	code:2
+	                        }
+	                    },
+
+	                ],
+				},
+				methods:{
+					show (index) {
+					},
+					remove (index) {
+						this.data1.splice(index,1);
+					}
+				}
+			});
+		</script>
+	</body>
+	
+	
+</html>
