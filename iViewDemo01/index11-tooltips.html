@@ -7,9 +7,17 @@
 		<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
 		<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
 	</head>
-	<body>
+	<body style="padding:50px;">
 		<div id="app">
-			<i-button @click="show"> Click Me !</i-button>
+			 <Tooltip content="Top Left 文字提示" placement="top-start">
+			 	<i-button @click="show"> Click Me !</i-button>
+			 </Tooltip>
+			<Tooltip content="Top Left 文字提示" placement="top">
+			 	<i-button @click="show"> Click Me !</i-button>
+			 </Tooltip>
+			 <Tooltip content="Top Left 文字提示" placement="top-end">
+			 	<i-button @click="show"> Click Me !</i-button>
+			 </Tooltip>
 			<Modal v-model="visible" title="Welcome">欢迎使用 iView</Modal>
 		</div>
 		<script>
