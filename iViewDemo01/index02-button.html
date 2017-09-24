@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iview Example</title>
+		<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+		<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+		<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+	</head>
+	<body >
+		<div id="app">
+			<i-button > Click Me !</i-button>
+			<i-button type="primary"> Click Me !</i-button>
+			<i-button type="ghost"> Click Me !</i-button>
+			<i-button type="dashed"> Click Me !</i-button>
+			<i-button type="text"> Click Me !</i-button>
+			<i-button type="info"> Click Me !</i-button>
+			<i-button type="success"> Click Me !</i-button>
+			<i-button type="warning"> Click Me !</i-button>
+			<i-button type="error"> Click Me !</i-button>
+			<br><br><br>
+			
+			<i-button type="primary" shape="circle" icon="ios-search"></i-button>
+			<i-button type="primary" icon="ios-search">Search</i-button>
+			<i-button type="primary" icon="ios-search">Search</i-button>
+			<i-button type="primary">Search</i-button><br><br>
+			<i-button type="ghost" shape="circle" icon="ios-search"></i-button>
+			<i-button type="ghost" icon="ios-search">Search</i-button>
+			<i-button type="ghost" icon="ios-search">Search</i-button>
+			<i-button type="ghost">Search</i-button>
+			<br><br><br>
+			
+			<i-button type="primary" size="large">Search</i-button>
+			<i-button type="primary" >Search</i-button>
+			<i-button type="primary" size="small">Search</i-button><br><br>
+			<i-button type="primary" shape="circle" size="large">Search</i-button>
+			<i-button type="primary" shape="circle">Search</i-button>
+			<i-button type="primary" shape="circle" size="small">Search</i-button>
+			<br><br><br>
+			
+			<i-button type="success" long> Click Me !</i-button><br><br>
+			<i-button type="warning" long> Click Me !</i-button>
+			<br><br><br>
+			
+			<i-button > Click Me !</i-button>
+			<i-button type="primary"> Click Me !</i-button>
+			<i-button type="ghost"> Click Me !</i-button>
+			<i-button type="dashed"> Click Me !</i-button>
+			<i-button type="text"> Click Me !</i-button><br><br>
+			<i-button disabled> Click Me !</i-button>
+			<i-button type="primary" disabled> Click Me !</i-button>
+			<i-button type="ghost" disabled> Click Me !</i-button>
+			<i-button type="dashed" disabled> Click Me !</i-button>
+			<i-button type="text" disabled> Click Me !</i-button>
+			<br><br><br>
+			
+			<i-button type="primary" loading>Loading...</i-button>
+			<i-button type="primary" :loading="loading" @click="toLoading">
+				<span v-if="!loading">Click me!</span>
+				<span v-else>Loading...</span>
+			</i-button>
+			<i-button type="primary" :loading="loading" @click="toLoading">
+				<span v-if="!loading">Click me!</span>
+				<span v-else>Loading...</span>
+			</i-button>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					loading:false
+				},
+				methods:{
+					toLoading:function() {
+						if(this.loading){
+							this.loading=false;
+						} else {
+							this.loading=true;
+						}
+						
+					}
+				}
+			});
+		</script>
+	</body>
+	
+	
+</html>

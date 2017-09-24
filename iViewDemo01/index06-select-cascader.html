@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iview Example</title>
+		<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+		<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+		<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h3>Select</h3><br><br>
+			<i-select v-model="model1" style="200px;">
+				<i-option v-for="item in typeList" :value="item.code" :key="item.code">{{ item.name }}</i-option>
+			</i-select>
+			<br><br>
+			<cascader :data="area" v-model="value1"></cascader>
+			
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					
+					value1:[],
+					area:[
+						{
+							value:10,
+							label:'北京',
+							children:[
+								{
+									value:10001,
+									label:'故宫'
+								},{
+									value:10002,
+									label:'天坛'
+								},{
+									value:10003,
+									label:'地坛'
+								}
+							]
+						},
+						{
+							value:12,
+							label:'江苏',
+							children:[
+								{
+									value:12001,
+									label:'南京',
+									children:[
+										{
+											value:1200101,
+											label:'夫子庙',
+										}
+									]
+								},{
+									value:12002,
+									label:'苏州'
+								}
+							]
+						}
+					],
+					model1:'',
+					typeList:[
+						{
+							name:'男性',
+							code:1
+						},
+						{
+							name:'女性',
+							code:-1
+						},
+						{
+							name:'保密',
+							code:0
+						}
+					]
+				},
+				methods:{
+					show:function(){
+						this.visible = true
+					}
+				}
+			});
+		</script>
+	</body>
+	
+	
+</html>

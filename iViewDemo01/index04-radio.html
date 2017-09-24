@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iview Example</title>
+		<link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+		<script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+		<script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+		<radio-group v-model="phone" vertical>
+			<radio label="apple">
+				<icon type="social-apple"></icon>
+				<span>Apple</span>
+			</radio>
+			<radio label="android">
+				<icon type="social-android"></icon>
+				<span>Android</span>
+			</radio>
+			<radio label="windows">
+				<icon type="social-windows"></icon>
+				<span>Windows</span>
+			</radio>
+		</radio-group>
+		<br>
+		<br>
+		<br>
+		<radio-group v-model="phone" type="button">
+			<radio label="北京"></radio>
+			<radio label="上海" disabled></radio>
+			<radio label="深圳"></radio>
+			<radio label="杭州"></radio>
+		</radio-group>
+	</div>
+		<script>
+			new Vue({
+				el : '#app',
+				data : {
+					phone : 'apple'
+				}
+			});
+		</script>
+	</body>
+	
+	
+</html>
