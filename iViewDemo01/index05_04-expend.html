@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iview table Example</title>
+		<link rel="stylesheet" type="text/css" href="dist/styles/iview.css">
+		<script type="text/javascript" src="dist/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="dist/vue.min-v2.4.0.js"></script>
+		<script type="text/javascript" src="dist/iview.min.js"></script>
+		<style >
+			.expand-row{
+				margin-bottom: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <template id="myrow" v-modal="row">
+			<row class="expand-row">
+				<i-col span="8">
+					<span class="expand-key">职业：</span>
+					<span class="expand-value">{{ row.interest }}</span>
+				</i-col>
+				<i-col span="8">
+					<span class="expand-key">兴趣：</span>
+					<span class="expand-value">{{ row.interest }}</span>
+				</i-col>
+					<Col span="8">
+						<span class="expand-key">生日：</span>
+					<span class="expand-value">{{ row.birthday }}</span>
+				</i-col>
+			</row>
+
+		</template> -->
+		<div id="app">
+				<h3>基础的表格</h3><br><br><br>
+				<i-table border  :columns="columns1"  :data="data1"></i-table><br><br>
+			</div>
+		</div>
+		<script>
+			 
+		</script>
+		<script>
+			var myrow = new Vue({
+				el:'#myrow',
+				props: {
+					row: Object,
+					index:Number
+				}
+			});
+			var app = new Vue({
+				components: { myrow },
+				el : '#app',
+				data : {
+					columns1 : [ 
+						 {
+		                        type: 'expand',
+		                        width: 50,
+		                         render: (h, params) => {
+		                        	console.info(params.row);
+		                            /* return h(myrow, {
+		                            	props: {
+		                                	row: params.row,
+		                                	index:params.index
+		                                }
+		                            }); */
+		                        } 
+		                    },
+						{
+							title : '姓名',
+							key : 'name'
+						}, {
+							title : '年龄',
+							key : 'age'
+						}, {
+							title : '地址',
+							key : 'address'
+						} 
+					],
+					data1 : [ {
+							name : '王小明2',
+							age : 18,
+							address : '北京市朝阳区芍药居',
+							job :'软件开发',
+							interest  :'LOL',
+							birthday :'1989/07-14',
+						}, {
+							name : '张小刚',
+							age : 25,
+							address : '北京市海淀区西二旗',
+							job :'软件开发',
+							interest  :'LOL',
+							birthday :'1989/07-14',
+						}, {
+							name : '李小红',
+							age : 30,
+							address : '上海市浦东新区世纪大道',
+							job :'软件开发',
+							interest  :'LOL',
+							birthday :'1989/07-14',
+						}, {
+							name : '周小伟',
+							age : 26,
+							address : '深圳市南山区深南大道',
+							job :'软件开发',
+							interest  :'LOL',
+							birthday :'1989/07-14',
+						} 
+					],
+				},
+				methods : {
+					toLoading : function() {
+					}
+				}
+			});
+		</script>
+	</body>
+	
+	
+</html>
