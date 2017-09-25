@@ -14,7 +14,7 @@
 		</style>
 	</head>
 	<body>
-		<!-- <template id="myrow" v-modal="row">
+		<script type="text/x-template" id="anchored-heading-template">
 			<row class="expand-row">
 				<i-col span="8">
 					<span class="expand-key">职业：</span>
@@ -29,8 +29,7 @@
 					<span class="expand-value">{{ row.birthday }}</span>
 				</i-col>
 			</row>
-
-		</template> -->
+		</script>
 		<div id="app">
 				<h3>基础的表格</h3><br><br><br>
 				<i-table border  :columns="columns1"  :data="data1"></i-table><br><br>
@@ -40,12 +39,11 @@
 			 
 		</script>
 		<script>
-			var myrow = new Vue({
-				el:'#myrow',
-				props: {
-					row: Object,
-					index:Number
-				}
+			var myrow = Vue.component('myrow', {
+				template: '#anchored-heading-template',
+			    props: {
+			        row:Object
+			    }
 			});
 			var app = new Vue({
 				components: { myrow },
@@ -57,12 +55,11 @@
 		                        width: 50,
 		                         render: (h, params) => {
 		                        	console.info(params.row);
-		                            /* return h(myrow, {
+		                             return h(myrow, {
 		                            	props: {
 		                                	row: params.row,
-		                                	index:params.index
 		                                }
-		                            }); */
+		                            }); 
 		                        } 
 		                    },
 						{
